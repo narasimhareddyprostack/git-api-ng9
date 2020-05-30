@@ -1,0 +1,73 @@
+
+<nav class="navbar navbar-light" style="background-color: #563d7c;">
+    <a class="navbar-brand" href="">Git Hub - Search </a>
+</nav>
+<nav class="navbar navbar-light bg-light">
+<form action="" class="form-search">
+	<div class="form-group">
+    <input type="text" class="form-control" 
+    placeholder="Search git users with username" 
+    [(ngModel)]="username" name="username" 
+    (keyup)="findProfile()">
+</div>
+</form>
+</nav>
+<div *ngIf="profileData"> 
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {{  profileData.name }} <small> {{ profileData.login }} </small>
+            <span *ngIf="profileData.company"> works at {{ profileData.company}}  </span>
+            {{ profileData.location}}
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <img src="{{ profileData.avatar_url}}" class="img-circle img-responsive" 
+                    alt="Profile Image">
+                </div>
+                <div class="col-sm-5">
+                        <ul class="list-group">
+                            <li class="list-group-item" *ngIf="profileData.bio">
+                                {{ profileData.bio }} 
+                            </li>
+                            <li class="list-group-item" *ngIf="profileData.hireable">
+                                {{ profileData.hireable }} 
+                        </li>
+                        <li class="list-group-item" *ngIf="profileData.blog">
+                            <a href="{{ profileData.blog}}" target="_blank"> {{ profileData.blog }} </a>
+                        </li>
+                        <li class="list-group-item" *ngIf="profileData.email">
+                                <a href="" target="_blank">{{ profileData.email }}</a> 
+                        </li>
+
+                        </ul>
+                </div>
+                <div class="col-sm-4">
+                    <p> 
+                       <span class="label label-default">{{ profileData.followers }}   Followers</span>
+                       <span class="label label-primary">{{ profileData.following }}   Following</span>
+                       <span class="label label-default">{{ profileData.public_repos }} Repo's</span>
+                     </p>
+                     <p>
+                         <a href="{{profileData.html_url}}" target="_blank" class="btn btn-success btn-sm"> View Git Profile</a>
+                     </p>
+                
+               <div class="panel panel-default">
+                   <div class="panel-heading">
+                       <h3 class="panel-title">Repos</h3>
+                   </div>
+                   <div class="panel-body" *ngFor="let repo of repos">
+                       <p>
+                        <a href="{{repo.html_url}}" target="_blank"> {{ repo.name}}  </a>
+                        <a href="{{repo.html_url}}" target="_blank" class="btn btn-warning pull-right">View Project</a>
+                     </p>
+                       
+                       <p> {{ repo.description }}</p>
+                   </div>
+               </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+</div>

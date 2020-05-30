@@ -1,0 +1,11 @@
+Important Commands
+Creating new project
+>ng new git-clone
+
+change the directory
+>cd git-clone
+>ng serve
+
+
+url
+https://api.github.com/users/narasimhareddyprostack
