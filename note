@@ -9,3 +9,33 @@ change the directory
 
 url
 https://api.github.com/users/narasimhareddyprostack
+
+git Commands
+----------------------------------------
+#Check version of node js
+>> node -version
+
+#Check version of npm
+>> npm -version
+
+#install angular: 
+
+>>npm install -g @angular/cli
+
+#Create a project: and cd my-project
+>>ng new my-project 
+
+#Running the scripts from package.json file
+#Diff npm start vs npm run start or npm run build
+
+>> npm start
+>> npm run start
+
+#Building project for dev and production
+>>npm run build -env=prod
+>>npm run build -env=dev
+
+#ng serve advanced options
+
+
+
